@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <title>quotes</title>
+    <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
 </head>
 <body>
     <a href="{{url_for('add_qoute')}}">add your own qoute!</a>
     {% for i in quotes %}
-    <p><h2>"{{quotes[i]["text"]}}"</h2>{{quotes[i]["author"]}}</p>
+    <h2>"{{quotes[i]["text"]}}"</h2>{{quotes[i]["author"]}}
     {% endfor %}
 </body>
 </html>
