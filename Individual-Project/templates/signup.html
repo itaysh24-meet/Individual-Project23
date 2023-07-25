@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>register</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/signup.css')}}">
+  <script type="text/javascript" src="{{url_for('static', filename='js/register.js')}}"></script>
+</head>
+<body>
+  <div class="form">
+        
+    <ul class="tab-group">
+      <li class="tab active"><a class="active" href="#">Sign Up</a></li>
+      <li class="tab"><a href="{{url_for('login')}}">Log In</a></li>
+    </ul>
+    <br>
+    <h3>{{error}}</h3>
+    <br>
+    <div class="tab-content">
+      <div id="signup">   
+        <h1>Sign Up for Free</h1>
+        
+        <form action="/signup" method="post">
+        
+        <div class="field-wrap">
+          <div class="field-wrap">
+            <label>
+              Username<span class="req">*</span>
+            </label>
+            <input type="text" name="username" require="required"/>
+          </div>
+
+        <div class="field-wrap">
+          <label>
+            Email Address<span class="req">*</span>
+          </label>
+          <input type="email" name="email" require="required"/>
+        </div>
+        
+        <div class="field-wrap">
+          <label>
+            Set A Password<span class="req">*</span>
+          </label>
+          <input type="password" name="password" minlength="6" maxlength="16" require="required"/>
+        </div>
+        
+        <button type="submit" class="button button-block"/>Get Started</button>
+        
+        </form>
+
+      </div>
+      
+    </div>
+        
+  </div> 
+</body>
+</html>

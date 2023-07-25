@@ -2,9 +2,12 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title></title>
+    <title>quotes</title>
 </head>
 <body>
-    
+    <a href="{{url_for('add_qoute')}}">add your own qoute!</a>
+    {% for i in quotes %}
+    <p><h2>"{{quotes[i]["text"]}}"</h2>{{quotes[i]["author"]}}</p>
+    {% endfor %}
 </body>
 </html>

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<a href="{{url_for('main')}}">back home!</a>
+	<p>{{error}}</p>
+	<form action="/add_qoute" method="post">
+		put youre qoute:
+		<input type="text" name="qoute">
+		<input type="submit" value="add qoute!">
+	</form>
+</body>
+</html>
