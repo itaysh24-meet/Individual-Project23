@@ -1,19 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>favorites</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/fav.css')}}">
+  <title>favorites</title>
 </head>
 <body>
-	<ul>
-		{% for i in fav_quotes %}
-		<li>"{{fav_quotes[i]["text"]}}" - {{fav_quotes[i]["author"]}}</li>
-		<form action="/favorites" method="post">
-            <input type="hidden" name="quote" value="{{fav_quotes[i]}}">
-            <input type="submit" id="submit" value="Add to favorites!">
-        </form>
-		{% endfor %}
-	</ul>
+  <div class="container">
+    <span class="add-quote"><a href="{{url_for('main')}}">Back to quotes!</a></span>
+    <ul class="quote-list">
+      {% for i in fav_quotes %}
+      <li class="quote-item">
+        <blockquote class="quote-text">"{{fav_quotes[i]["text"]}}"</blockquote>
+        <cite class="quote-author">- {{fav_quotes[i]["author"]}}</cite>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
 </body>
 </html>

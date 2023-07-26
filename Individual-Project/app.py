@@ -86,19 +86,10 @@ def main():
         return render_template("index.html", quotes = db.child("Quotes").get().val())
 
 
-@app.route('/favorits', methods=["GET", "POST"])
+@app.route('/favorits')
 def fav():
-    error = ""
-    if request.method == "POST":
-        quote = request.form["quote"]
-
-        try:
-            db.child("Users").child(login_session["logged_user"]["localId"]).child("fav_quotes").remove(quote)
-            return redirect(url_for('fav'))
-        except:
-            return redirect(url_for('fav'))
-    else:
-        return render_template("favorits.html", fav_quotes=db.child("Users").child(login_session["logged_user"]["localId"]).child("fav_quotes").get().val())
+    fav_quotes = db.child("Users").child(login_session["logged_user"]["localId"]).child("fav_quotes").get().val()
+    return render_template("favorits.html", fav_quotes=fav_quotes)
 
 
 @app.route("/add_qoute", methods = ["POST", "GET"])

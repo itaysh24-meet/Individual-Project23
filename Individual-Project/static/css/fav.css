@@ -1,30 +1,68 @@
-#submit {
-  --c:  #229091;
-  
-  box-shadow: 0 0 0 .1em inset var(--c); 
-  --_g: linear-gradient(var(--c) 0 0) no-repeat;
-  background: 
-    var(--_g) calc(var(--_p,0%) - 100%) 0%,
-    var(--_g) calc(200% - var(--_p,0%)) 0%,
-    var(--_g) calc(var(--_p,0%) - 100%) 100%,
-    var(--_g) calc(200% - var(--_p,0%)) 100%;
-  background-size: 50.5% calc(var(--_p,0%)/2 + .5%);
-  outline-offset: .1em;
-  transition: background-size .4s, background-position 0s .4s;
-}
-#submit:hover {
-  --_p: 100%;
-  transition: background-position .4s, background-size 0s;
-}
-#submit:active {
-  box-shadow: 0 0 9e9q inset #0009; 
-  background-color: var(--c);
-  color: #fff;
+/* Reset some default styles */
+body, ul {
+  margin: 0;
+  padding: 0;
 }
 
-#submit {
-  font-family: system-ui, sans-serif;
-  cursor: pointer;
-  font-weight: bold;  
-  border: none;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.add-quote {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.quote-list {
+  list-style: none;
+}
+
+.quote-item {
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+  background-color: #fff;
+  transition: background-color 0.3s ease;
+}
+
+.quote-text {
+  font-size: 18px;
+  font-style: italic;
+  margin: 0;
+}
+
+.quote-author {
+  display: block;
+  font-size: 14px;
+  margin-top: 10px;
+  color: #777;
+}
+
+/* Hover effect */
+.quote-item:hover {
+  background-color: #f9f9f9;
+}
+
+/* Media query for responsiveness */
+@media (max-width: 600px) {
+  .quote-text {
+    font-size: 16px;
+  }
 }
