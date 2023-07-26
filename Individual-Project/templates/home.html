@@ -1,19 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>mmmmmm</title>
-	<style type="text/css">
-		.center {
-		  padding: 20%;
-		  text-align: center;
-		}
-	</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Humor Hub: Funny Quotes Website</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/first.css')}}">
 </head>
+
 <body>
-	<div class="center">
-	    <a href="{{url_for('signup')}}"><h1>press me</h1></a>
-	</div>
+  <header>
+    <h1>Humor Hub</h1>
+    <p>Where Laughter Knows No Bounds!</p>
+  </header>
+
+  <main>
+    <section class="welcome-section">
+      <center>
+      <h2>Welcome to the Humor Hub: Where Laughter Knows No Bounds!</h2>
+      <p>Greetings, fellow jokesters and merrymakers! Step into the side-splitting world of our Funny Quotes Website –
+        a digital carnival of laughter, wit, and uproarious humor.</p>
+      <p>Here, we celebrate the art of comedy and the joy it brings to our lives. From witty one-liners to hilarious
+        anecdotes, our collection of funny quotes is carefully curated to tickle your funny bone and brighten your day.
+        Whether you're in dire need of a good laugh or simply seeking to add a dash of humor to your day, you've come to
+        the right place!</p>
+      <p>But that's not all! Our Funny Quotes Website isn't just about us; it's about you too! We believe that laughter
+        should be a communal experience, and we invite you to join in the hilarity. Share your funniest quips, your
+        wackiest wisecracks, and your most amusing musings with the world. Become a part of our vibrant community, where
+        humor knows no boundaries.</p>
+      <p>At the Humor Hub, every day is a celebration of laughter. Our team of jesters scours the web to handpick the
+        funniest and most entertaining quotes, ensuring that you're greeted with a fresh dose of hilarity every time you
+        visit. From legendary comedians to everyday jokers, we feature a diverse array of humor that caters to every
+        taste.</p>
+      <p>But remember, we take humor seriously! While we cherish the laughter, we also foster an environment of respect
+        and inclusivity. So, as you share your humor and bask in the hilarity of others, let's keep it light-hearted,
+        friendly, and kind.</p>
+      <p>Are you ready to embark on a journey filled with laughter and good cheer? Come, join the merriment, and let's
+        create a world where smiles are contagious, and laughter is the language we all understand.</p>
+      <p>Let's spread the joy, one funny quote at a time!</p>
+      <a href="{{url_for('signup')}}"><button class="signup-button">Sign Up</button></a>
+      </center>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2023 Humor Hub. All rights reserved.</p>
+  </footer>
 </body>
+
 </html>
