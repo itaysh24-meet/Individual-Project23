@@ -60,7 +60,7 @@ def login():
             uid = login_session["logged_user"]["localId"]
 
             user = db.child("Users").child(uid).get().val()
-            login_session["logged_username"] =  username = user["username"]
+            login_session["logged_username"] = user["username"]
             return render_template("index.html")
         except:
             error = "email or password incorrect, try again"
@@ -69,10 +69,36 @@ def login():
         return render_template("login.html")
 
 
-@app.route("/index")
+@app.route("/index", methods=["GET", "POST"])
 def main():
-    #db.child("Users").child(login_session["logged_user"]["localId"]).update({ "fav_quotes": {} })
-    return render_template("index.html", quotes = db.child("Quotes").get().val())
+    error = ""
+    if request.method == "POST":
+        text = request.form["text"]
+        author = request.form["author"]
+        fav_quote = {"text": text, "author": author}
+
+        try:
+            db.child("Users").child(login_session["logged_user"]["localId"]).child("fav_quotes").push(fav_quote)
+            return redirect(url_for('main'))
+        except:
+            return redirect(url_for('main'))
+    else:
+        return render_template("index.html", quotes = db.child("Quotes").get().val())
+
+
+@app.route('/favorits', methods=["GET", "POST"])
+def fav():
+    error = ""
+    if request.method == "POST":
+        quote = request.form["quote"]
+
+        try:
+            db.child("Users").child(login_session["logged_user"]["localId"]).child("fav_quotes").remove(quote)
+            return redirect(url_for('fav'))
+        except:
+            return redirect(url_for('fav'))
+    else:
+        return render_template("favorits.html", fav_quotes=db.child("Users").child(login_session["logged_user"]["localId"]).child("fav_quotes").get().val())
 
 
 @app.route("/add_qoute", methods = ["POST", "GET"])

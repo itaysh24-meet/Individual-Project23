@@ -7,11 +7,16 @@
 </head>
 <body>
     <span><a href="{{url_for('add_qoute')}}">Add your own qoute!</a></span>
-    <span><a href="#">Go to your favorites quotes!</a></span>
+    <span><a href="{{url_for('fav')}}">Go to your favorites quotes!</a></span>
     {% for i in quotes %}
     <center>
         <h3>"{{quotes[i]["text"]}}"</h3><span>{{quotes[i]["author"]}}</span>
-        <button>Add to favorites!</button>
+        <form action="/index" method="post">
+            <input type="hidden" name="text" value="{{quotes[i]['text']}}">
+            <input type="hidden" name="author" value="{{quotes[i]['author']}}">
+            <input type="submit" id="submit" value="Add to favorites!">
+        </form>
+        <!-- <button>Add to favorites!</button> -->
     </center>
     {% endfor %}
 </body>

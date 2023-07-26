@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>favorites</title>
+</head>
+<body>
+	<ul>
+		{% for i in fav_quotes %}
+		<li>"{{fav_quotes[i]["text"]}}" - {{fav_quotes[i]["author"]}}</li>
+		<form action="/favorites" method="post">
+            <input type="hidden" name="quote" value="{{fav_quotes[i]}}">
+            <input type="submit" id="submit" value="Add to favorites!">
+        </form>
+		{% endfor %}
+	</ul>
+</body>
+</html>
