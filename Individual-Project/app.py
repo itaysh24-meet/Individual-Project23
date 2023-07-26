@@ -71,6 +71,7 @@ def login():
 
 @app.route("/index")
 def main():
+    #db.child("Users").child(login_session["logged_user"]["localId"]).update({ "fav_quotes": {} })
     return render_template("index.html", quotes = db.child("Quotes").get().val())
 
 
@@ -83,7 +84,7 @@ def add_qoute():
             username = login_session["logged_username"]
             qoute = {"text": text, "author": username}
             db.child("Quotes").push(qoute)
-            return render_template("index.html", quotes = db.child("Quotes").get().val())
+            return redirect(url_for('main'))
         except:
             error = "can not upload qoute"
             return render_template("add_qoute.html", error=error)

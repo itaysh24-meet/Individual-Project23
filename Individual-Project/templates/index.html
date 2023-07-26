@@ -6,9 +6,13 @@
     <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='css/main.css')}}">
 </head>
 <body>
-    <a href="{{url_for('add_qoute')}}">add your own qoute!</a>
+    <span><a href="{{url_for('add_qoute')}}">Add your own qoute!</a></span>
+    <span><a href="#">Go to your favorites quotes!</a></span>
     {% for i in quotes %}
-    <h2>"{{quotes[i]["text"]}}"</h2>{{quotes[i]["author"]}}
+    <center>
+        <h3>"{{quotes[i]["text"]}}"</h3><span>{{quotes[i]["author"]}}</span>
+        <button>Add to favorites!</button>
+    </center>
     {% endfor %}
 </body>
 </html>
